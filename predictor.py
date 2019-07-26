@@ -54,20 +54,17 @@ def getSymptomsFromDisease(diseaseData, symptomList):
 def getDiseaseData(name, X, Y):
 	return X[Y.index(name)]
 
-# method to predict disease based off input
-def predictDisease(symptoms, X, Y, symptomList, data):
-	# # create classifier
-	# clf = tree.DecisionTreeClassifier()
-	# # train data
-	# clf = clf.fit(X, Y)
+def trainData(X, Y):
 	clf = RandomForestClassifier(n_jobs=2, random_state=0)
 	clf.fit(X, Y)
+	return clf
 
-	print("using forest classifier")
-
-	# get the symptoms and convert them to an integer array
+# method to predict disease based off input
+def predictDisease(symptoms, clf, symptomList, data):
+	# convert data to integer array
 	inputData = extractIntegerArrayFromSymptoms(symptoms, symptomList)
-	# call prediction method using the classifier
+
+	# get prediction
 	prediction = clf.predict([inputData])
 
 	# print prediction result

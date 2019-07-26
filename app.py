@@ -23,6 +23,9 @@ Y = data[1]
 # List of symptoms as string names
 symptomList = data[2]
 
+# get the classifier
+clf = trainData(X, Y)
+
 # define routes for the server
 @app.route('/')
 def root():
@@ -34,7 +37,7 @@ def favicon():
 
 @app.route("/predict", methods= ['POST'])
 def predict():
-	# test disease data
+	# test data
 	# alzhimersTest = getSymptomsFromDisease(getDiseaseData("Alzheimer's disease", X, Y), symptomList)
 	# confusionTest = getSymptomsFromDisease(getDiseaseData("confusion", X, Y), symptomList)
 
@@ -44,7 +47,7 @@ def predict():
 	# print(symptomList)
 
 	# predict disease based off symptoms inputted
-	result = predictDisease(symptoms, X, Y, symptomList, data)
+	result = predictDisease(symptoms, clf, symptomList, data)
 
 	# return prediction result
 	return jsonify({'output' : result})
