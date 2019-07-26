@@ -1,5 +1,5 @@
 #import flask server
-from flask import Flask
+from flask import Flask, render_template
 
 # import predictor file
 from predictor import *
@@ -18,9 +18,9 @@ Y = data[1]
 symptomList = data[2]
 
 # define routes for the server
-@app.route("/")
-def index():
-  return "Index!"
+@app.route('/')
+def root():
+	return render_template("home.html")
 
 @app.route("/predict")
 def predict():
@@ -32,7 +32,7 @@ def predict():
 	symptoms = alzhimersTest	# TODO: REPLACE THIS WITH CLIENT INPUTTED SYMPTOMS
 
 	# print symptoms inputted into prediction method
-	print("\n\nsymptoms inputted: %s" % symptoms)
+	output = ("\n\nsymptoms inputted: %s" % symptoms)
 
 	# predict disease based off symptoms inputted
 	result = predictDisease(symptoms, X, Y, symptomList, data)
@@ -41,7 +41,7 @@ def predict():
 	result = ("\n\nYou have %s :)\n\n" % result)
 
 	# return prediction result
-	return result
+	return (result + output)
 
 # run the server
 if __name__ == "__main__":
