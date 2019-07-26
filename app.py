@@ -41,7 +41,7 @@ def predict():
 	# user inputted symptoms
 	symptoms = (json.loads(request.form['symptoms']))
 
-	print(symptomList)
+	# print(symptomList)
 
 	# predict disease based off symptoms inputted
 	result = predictDisease(symptoms, X, Y, symptomList, data)

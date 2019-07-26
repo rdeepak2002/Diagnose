@@ -1,5 +1,6 @@
 # import decision tree from scikit learn
-from sklearn import tree
+from sklearn.ensemble import RandomForestClassifier
+
 # import csv reader
 import csv
 
@@ -55,10 +56,14 @@ def getDiseaseData(name, X, Y):
 
 # method to predict disease based off input
 def predictDisease(symptoms, X, Y, symptomList, data):
-	# create classifier
-	clf = tree.DecisionTreeClassifier()
-	# train data
-	clf = clf.fit(X, Y)
+	# # create classifier
+	# clf = tree.DecisionTreeClassifier()
+	# # train data
+	# clf = clf.fit(X, Y)
+	clf = RandomForestClassifier(n_jobs=2, random_state=0)
+	clf.fit(X, Y)
+
+	print("using forest classifier")
 
 	# get the symptoms and convert them to an integer array
 	inputData = extractIntegerArrayFromSymptoms(symptoms, symptomList)

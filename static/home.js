@@ -25,17 +25,23 @@ $(document).ready(function() {
 
 	// event listener for predict button
 	$('#predictBtn').on('click', function(event) {
-		$.ajax({
-			data : {
-					symptoms : JSON.stringify(symptomsOut)
-					//test: alzhimers = 'agitation', 'bedridden', 'consciousness clear', 'cough', 'drool', 'facial paresis', 'fever', 'frail', 'groggy', 'hyperkalemia', 'muscle twitch', 'nightmare']
-				},
-					type : 'POST',
-					url : '/predict'
-				})
-		.done(function(data) {
-			$('#output').text(data.output).show();
-		});
+		if(symptomsOut.length == 0) {
+			$('#output').text("Please check at least one box!").show();
+		}
+		else {
+			$.ajax({
+				data : {
+						symptoms : JSON.stringify(symptomsOut)
+						//test: alzhimers = 'agitation', 'bedridden', 'consciousness clear', 'cough', 'drool', 'facial paresis', 'fever', 'frail', 'groggy', 'hyperkalemia', 'muscle twitch', 'nightmare']
+					},
+						type : 'POST',
+						url : '/predict'
+					})
+			.done(function(data) {
+				$('#output').text(data.output).show();
+			});
+		}
+
 		event.preventDefault();
 	});
 });
