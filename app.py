@@ -1,5 +1,8 @@
 #import flask server
-from flask import Flask, render_template
+from flask import Flask,request,render_template,jsonify
+
+# import json for reading POST data
+import json
 
 # import predictor file
 from predictor import *
@@ -22,30 +25,26 @@ symptomList = data[2]
 def root():
 	return render_template("home.html")
 
-@app.route("/predict")
+@app.route("/predict", methods= ['POST'])
 def predict():
 	# test disease data
-	alzhimersTest = getSymptomsFromDisease(getDiseaseData("Alzheimer's disease", X, Y), symptomList)
-	confusionTest = getSymptomsFromDisease(getDiseaseData("confusion", X, Y), symptomList)
+	# alzhimersTest = getSymptomsFromDisease(getDiseaseData("Alzheimer's disease", X, Y), symptomList)
+	# confusionTest = getSymptomsFromDisease(getDiseaseData("confusion", X, Y), symptomList)
 
 	# user inputted symptoms
-	symptoms = alzhimersTest	# TODO: REPLACE THIS WITH CLIENT INPUTTED SYMPTOMS
+	symptoms = (json.loads(request.form['symptoms']))
 
-	# print symptoms inputted into prediction method
-	output = ("\n\nsymptoms inputted: %s" % symptoms)
+	print(symptomList)
 
 	# predict disease based off symptoms inputted
 	result = predictDisease(symptoms, X, Y, symptomList, data)
 
-	# format string
-	result = ("\n\nYou have %s :)\n\n" % result)
-
 	# return prediction result
-	return (result + output)
+	return jsonify({'output' : result})
 
 # run the server
 if __name__ == "__main__":
-  app.run()
+  app.run(debug=True)
 
 
 
