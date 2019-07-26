@@ -2,25 +2,30 @@
 	<head>
 		<title>Diagnose</title>
 
-		<meta name="description" content="This app is intended to predict a disease based off inputted symptoms.">
+		<meta charset="utf-8">
 		<meta name="robots" content="index, follow">
+		<meta name="description" content="This app is intended to predict a disease based off inputted symptoms.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<link rel="canonical" href="https://diagnosenow.herokuapp.com/"/>
-		
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 		<link rel="icon" type="image/png" href="../static/favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="../static/favicon-16x16.png" sizes="16x16" />
 
 		<script src="../static/jquery.min.js"></script>		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<button id="predictBtn">Predict!</button>
+		<div class="container">
+			<button class="btn btn-primary" id="predictBtn">Predict!</button>
 
-		<div id="output"></div>
+			<div id="output"></div>
 
-		<div id="checkList">
-
+			<div id="checkList"></div>
 		</div>
-
 		<script src="../static/home.js"></script>
 	</body>
 </html>

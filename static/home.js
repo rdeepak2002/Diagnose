@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 	// add checkboxes to screen
 	for(var i = 0; i < symptomList.length; i++) {
-		var checkBox = '<input type="checkbox" id="'+symptomList[i]+'" value="'+symptomList[i]+'onclick="updateSymptoms(this.id)"">'+symptomList[i]+'<br>';
+		var checkBox = '<input class="form-check-label" type="checkbox" id="'+symptomList[i]+'" value="'+symptomList[i]+'onclick="updateSymptoms(this.id)"">'+symptomList[i]+'<br>';
 		$( "#checkList" ).append(checkBox);
 	}
 
