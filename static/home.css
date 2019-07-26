@@ -1,0 +1,25 @@
+.btnContainer {
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 70px;
+	width: 100%;
+}
+
+.logoBtn {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+}
+
+#predictBtn {
+	padding: 5px !important;
+	border-radius: 100% !important;
+	background-color: #fff !important;
+	margin-left: 50%;
+	transform: translate(-50%);
+}
+
+#output {
+	height: 10px;
+	margin-bottom: 60px;
+}

@@ -11,6 +11,8 @@
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+		<link rel="stylesheet" type="text/css" href="../static/home.css">
+
 		<link rel="icon" type="image/png" href="../static/favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="../static/favicon-16x16.png" sizes="16x16" />
 
@@ -20,9 +22,11 @@
 	</head>
 	<body>
 		<div class="container">
-			<button class="btn btn-primary" id="predictBtn">Predict!</button>
+			<div class="btnContainer">
+				<button class="btn btn-primary" id="predictBtn"><img class="logoBtn" src="../static/logo.jpg"></img></button>
+			</div>
 
-			<div id="output"></div>
+			<h1 id="output"></h1>
 
 			<div id="checkList"></div>
 		</div>
