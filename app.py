@@ -1,8 +1,11 @@
 #import flask server
-from flask import Flask,request,render_template,jsonify
+from flask import Flask,request,render_template,send_from_directory,jsonify
 
 # import json for reading POST data
 import json
+
+# importing os for path reasons
+import os
 
 # import predictor file
 from predictor import *
@@ -24,6 +27,10 @@ symptomList = data[2]
 @app.route('/')
 def root():
 	return render_template("home.html")
+
+@app.route('/favicon.ico') 
+def favicon(): 
+	return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/predict", methods= ['POST'])
 def predict():
