@@ -9,8 +9,22 @@ $(document).ready(function() {
 		$( "#checkList" ).append(checkBox);
 	}
 
+	$(".btnContainer").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function(){
+		$(".logoBtn").removeClass("spinAnimation")  
+	})
+
+	$(".btnContainer").click(function(){
+		$(".logoBtn").addClass("spinAnimation");        
+	})
+
+	var defaultText = "Click The Button Above!";
+
+	$('#output').text(defaultText).show();
+
 	// event listener for each checkbox
 	$('input[type="checkbox"]').click(function(){
+		$('#output').text(defaultText).show();
+
 		if($(this).prop("checked") == true){
 			var symptom = $(this).attr('id');
 			symptomsOut.push(symptom);
@@ -26,7 +40,7 @@ $(document).ready(function() {
 	// event listener for predict button
 	$('#predictBtn').on('click', function(event) {
 		if(symptomsOut.length == 0) {
-			$('#output').text("Please check at least one box!").show();
+			$('#output').text("Please Check at Least One Box!").show();
 		}
 		else {
 			$.ajax({

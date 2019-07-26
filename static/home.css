@@ -2,24 +2,33 @@
 	margin: 0 auto;
 	margin-top: 40px;
 	margin-bottom: 70px;
-	width: 100%;
+	width: 220px;
+	height: 220px;
+	border-radius: 100%;
+	background-color: black;
+	border: dashed 1px black;
+	transition: all .1s ease-in-out; 
+}
+
+.btnContainer:active {
+	transform: scale(0.9); 
 }
 
 .logoBtn {
-	width: 200px;
-	height: 200px;
-	border-radius: 100%;
+	margin-left: 35px;
+	margin-top: 35px;
+	width: 150px;
+	height: 150px;
 }
 
-#predictBtn {
-	padding: 5px !important;
-	border-radius: 100% !important;
-	background-color: #fff !important;
-	margin-left: 50%;
-	transform: translate(-50%);
+.spinAnimation {
+	animation: spin 2s linear;
 }
+
+@keyframes spin { 100% { -webkit-transform: rotateY(360deg); transform:rotateY(360deg); } }
 
 #output {
 	height: 10px;
+	text-align: center;
 	margin-bottom: 60px;
 }
