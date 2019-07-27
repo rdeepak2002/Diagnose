@@ -16,23 +16,23 @@ $(document).ready(function() {
 		$(".logoBtn").removeClass("spinAnimation")  
 	})
 
-	$(".btnContainer").click(function(){
+	$(".btnContainer").click(function() {
 		if(symptomsOut.length > 0) {
 			$(".logoBtn").addClass("spinAnimation");
 		}
 	})
 
-	$(".infoBtn").click(function(){
-		$(".wikipediaFrame").attr("src", $(".wikipediaFrame").attr('id'));
+	$(".infoBtn").click(function() {
+		$(".wikipediaFrame").attr("src", $(this).attr('id'));
 	})
 
 	// event listener for each checkbox
-	$('input[type="checkbox"]').click(function(){
+	$('input[type="checkbox"]').click(function() {
 		if($(this).prop("checked") == true){
 			var symptom = $(this).attr('id');
 			symptomsOut.push(symptom);
 		}
-		else if($(this).prop("checked") == false){
+		else if($(this).prop("checked") == false) {
 			var symptom = $(this).attr('id');
 			symptomsOut.pop(symptom);
 		}
