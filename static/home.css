@@ -1,3 +1,7 @@
+*:focus{
+	outline: none !important;
+}
+
 .disable-selection {
      -moz-user-select: none; /* Firefox */
       -ms-user-select: none; /* Internet Explorer */
