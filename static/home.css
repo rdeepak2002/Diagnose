@@ -78,7 +78,7 @@
 }
 
 #output {
-	height: 10px;
+	height: auto;
 	text-align: center;
 	margin-bottom: 60px;
 }
