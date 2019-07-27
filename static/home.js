@@ -14,35 +14,38 @@ $(document).ready(function() {
 	})
 
 	$(".btnContainer").click(function(){
-		$(".logoBtn").addClass("spinAnimation");        
+		if(symptomsOut.length > 0) {
+			$(".logoBtn").addClass("spinAnimation");
+		}
 	})
-
-	var defaultText = "Click The Button Above!";
-
-	$('#output').text(defaultText).show();
 
 	// event listener for each checkbox
 	$('input[type="checkbox"]').click(function(){
-		$('#output').text(defaultText).show();
-
 		if($(this).prop("checked") == true){
 			var symptom = $(this).attr('id');
 			symptomsOut.push(symptom);
-			console.log(symptomsOut);
 		}
 		else if($(this).prop("checked") == false){
 			var symptom = $(this).attr('id');
 			symptomsOut.pop(symptom);
-			console.log(symptomsOut);
+		}
+
+		if(symptomsOut.length == 0) {
+			$('#output').text("Check the Symptoms You Have!").show();
+		}
+		else {
+			$('#output').text("Click The Button Above!").show();
 		}
 	});
 
 	// event listener for predict button
-	$('#predictBtn').on('click', function(event) {
+	$('.btnContainer').on('click', function(event) {
 		if(symptomsOut.length == 0) {
 			$('#output').text("Please Check at Least One Box!").show();
 		}
 		else {
+			$("#loader").addClass("loader");
+
 			$.ajax({
 				data : {
 						symptoms : JSON.stringify(symptomsOut)
@@ -52,7 +55,9 @@ $(document).ready(function() {
 						url : '/predict'
 					})
 			.done(function(data) {
+				console.log(data.output);
 				$('#output').text(data.output).show();
+					$("#loader").removeClass("loader");
 			});
 		}
 
