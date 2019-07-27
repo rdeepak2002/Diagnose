@@ -208,3 +208,55 @@
     transform: rotate(360deg);
   }
 }
+
+/*Autocomplete css:*/
+.searchBarOuter {
+	margin: 0 auto;
+	width: 100%;
+	padding-left: 30%;
+	padding-right: 30%;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: fixed;
+  display: inline-block;
+}
+.searchBar {
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 50px;
+}
+.searchBar[type=text] {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+	padding-left: 30%;
+	padding-right: 30%;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
