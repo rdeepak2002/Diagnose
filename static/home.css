@@ -217,8 +217,15 @@
 .searchBarOuter {
 	margin: 0 auto;
 	width: 100%;
-	padding-left: 30%;
-	padding-right: 30%;
+}
+
+@media only screen and (min-width: 600px) {
+	.searchBarOuter {
+		margin: 0 auto;
+		width: 100%;
+		padding-left: 30%;
+		padding-right: 30%;
+	}
 }
 
 .autocomplete {
@@ -246,9 +253,24 @@
   top: 100%;
   left: 0;
   right: 0;
-	padding-left: 30%;
-	padding-right: 30%;
 }
+
+@media only screen and (min-width: 600px) {
+	.autocomplete-items {
+		position: absolute;
+		border: 1px solid #d4d4d4;
+		border-bottom: none;
+		border-top: none;
+		z-index: 99;
+		/*position the autocomplete items to be the same width as the container:*/
+		top: 100%;
+		left: 0;
+		right: 0;
+		padding-left: 30%;
+		padding-right: 30%;
+	}
+}
+
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
