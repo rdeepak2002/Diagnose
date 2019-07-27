@@ -33,7 +33,7 @@ $(document).ready(function() {
 	})
 
 	$(".infoBtn").click(function() {
-		$(".wikipediaFrame").attr("src", "http://en.wikipedia.org/w/index.php?title="+$(this).attr('id')+"&printable=yes");
+		$(".wikipediaFrame").attr("src", "https://en.wikipedia.org/w/index.php?title="+$(this).attr('id')+"&printable=yes");
 	})
 
 	$(".closeBtn").click(function() {
