@@ -5,8 +5,11 @@ $(document).ready(function() {
 
 	// add checkboxes to screen
 	for(var i = 0; i < symptomList.length; i++) {
-		var checkBox = '<input class="form-check-label" type="checkbox" id="'+symptomList[i]+'" value="'+symptomList[i]+'onclick="updateSymptoms(this.id)"">'+symptomList[i]+'<br>';
+		var checkBox = '<input class="checkBox form-check-label" type="checkbox" id="'+symptomList[i]+'" value="'+symptomList[i]+'onclick="updateSymptoms(this.id)"">';
+		var label = '<label class="checkBoxLabel form-check-label" for="'+symptomList[i]+'">' + symptomList[i] + '</label><button type="button" class="infoBtn btn btn-secondary" data-toggle="modal" id="'+symptomList[i]+'" data-target="#exampleModal">?</button><br>'
+
 		$( "#checkList" ).append(checkBox);
+		$( "#checkList" ).append(label);
 	}
 
 	$(".btnContainer").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function(){
@@ -17,6 +20,10 @@ $(document).ready(function() {
 		if(symptomsOut.length > 0) {
 			$(".logoBtn").addClass("spinAnimation");
 		}
+	})
+
+	$(".infoBtn").click(function(){
+		$(".wikipediaFrame").attr("src", $(".wikipediaFrame").attr('id'));
 	})
 
 	// event listener for each checkbox

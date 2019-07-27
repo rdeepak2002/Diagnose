@@ -14,6 +14,35 @@
 	transform: scale(0.9); 
 }
 
+.infoBtn {
+	border-radius: 100%;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	font-family: "Arial Black", "Arial Narrow", Gadget, sans-serif; 
+	font-weight: bold;
+	padding: 0px !important;
+	background-color: rgb(255, 255, 255) !important;
+	color: rgb(0, 0, 0) !important;
+}
+
+.infoBtn:hover {
+	color: rgb(0, 0, 0) !important
+}
+
+.infoBtn:active {
+	color: rgb(0, 0, 0) !important;
+}
+
+.infoBtn:focus {
+	color: rgb(0, 0, 0) !important
+}
+
+.wikipediaFrame {
+	width: 100%;
+	height: 60%;
+}
+
 .logoBtn {
 	margin-left: 35px;
 	margin-top: 35px;
@@ -26,6 +55,17 @@
 }
 
 @keyframes spin { 100% { -webkit-transform: rotateY(360deg); transform:rotateY(360deg); } }
+
+.checkBox {
+	height: 20px !important;
+	width: 20px !important;
+	padding: 10px !important;
+	margin-right: 10px;
+}
+
+.checkBoxLabel {
+	font-size: 30px !important;
+}
 
 #output {
 	height: 10px;
