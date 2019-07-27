@@ -77,6 +77,12 @@
 	font-size: 30px !important;
 }
 
+@media only screen and (min-width: 600px) {
+	#checkList {
+		margin-left: 30%;
+	}
+}
+
 #output {
 	height: auto;
 	text-align: center;
