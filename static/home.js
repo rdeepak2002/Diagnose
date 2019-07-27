@@ -23,7 +23,15 @@ $(document).ready(function() {
 	})
 
 	$(".infoBtn").click(function() {
-		$(".wikipediaFrame").attr("src", $(this).attr('id'));
+		$(".wikipediaFrame").attr("src", "http://en.wikipedia.org/w/index.php?title="+$(this).attr('id')+"&printable=yes");
+	})
+
+	$(".closeBtn").click(function() {
+		$(".wikipediaFrame").attr("src", "");
+	})
+
+	$(".closeBtn2").click(function() {
+		$(".wikipediaFrame").attr("src", "");
 	})
 
 	// event listener for each checkbox
