@@ -6,7 +6,7 @@ $(document).ready(function() {
 	// add checkboxes to screen
 	for(var i = 0; i < symptomList.length; i++) {
 		var checkBox = '<input class="checkBox form-check-label" type="checkbox" id="'+symptomList[i]+'" value="'+symptomList[i]+'onclick="updateSymptoms(this.id)"">';
-		var label = '<label class="checkBoxLabel form-check-label" for="'+symptomList[i]+'">' + symptomList[i] + '</label><button type="button" class="infoBtn btn btn-secondary" data-toggle="modal" id="'+symptomList[i]+'" data-target="#exampleModal">?</button><br>'
+		var label = '<label class="checkBoxLabel form-check-label" for="'+symptomList[i]+'">' + symptomList[i] + '</label>' + '<br>' //+ '<button type="button" class="infoBtn btn btn-secondary" data-toggle="modal" id="'+symptomList[i]+'" data-target="#exampleModal">?</button><br>'
 
 		$( "#checkList" ).append(checkBox);
 		$( "#checkList" ).append(label);
@@ -33,7 +33,8 @@ $(document).ready(function() {
 	})
 
 	$(".infoBtn").click(function() {
-		$(".wikipediaFrame").attr("src", "https://en.wikipedia.org/w/index.php?title="+$(this).attr('id')+"&printable=yes");
+		console.log("searching " + $(this).attr('id'));
+		$(".wikipediaFrame").attr("src", "http://en.wikipedia.org/w/index.php?title="+$(this).attr('id')+"");
 	})
 
 	$(".closeBtn").click(function() {
@@ -59,7 +60,7 @@ $(document).ready(function() {
 			$('#output').text("Check the Symptoms You Have!").show();
 		}
 		else {
-			$('#output').text("Click The Button Above!").show();
+			$('#output').text("Click The Black Button Above!").show();
 		}
 	});
 
