@@ -81,7 +81,7 @@ $(document).ready(function() {
 					})
 			.done(function(data) {
 				console.log(data.output);
-				$('#output').text(data.output).show();
+				$('#output').text("You have " + data.output).show();
 					$("#loader").removeClass("loader");
 			});
 		}
